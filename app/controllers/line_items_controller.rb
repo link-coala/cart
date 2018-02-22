@@ -35,6 +35,7 @@ product = Product.find(params[:product_id])
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new }
+        format.js   { @current_item = @line_item }
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
       end
     end
